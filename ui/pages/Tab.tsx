@@ -7,6 +7,7 @@ import Snackbar from "../components/Snackbar/Snackbar"
 import TabbedOnboardingRoot from "./Onboarding/Tabbed/Root"
 
 import TabNotFound from "./TabNotFound"
+import LedgerConnect from "./LedgerConnect"
 
 /**
  * Entry point for UI shown in browser tabs.
@@ -21,6 +22,9 @@ export default function Tab({ store }: { store: Store }): ReactElement {
             <Switch>
               <Route path="/onboarding">
                 <TabbedOnboardingRoot />
+              </Route>
+              <Route path="/ledger-connect">
+                <LedgerConnect />
               </Route>
               <Route>
                 <TabNotFound />

@@ -315,6 +315,18 @@ export default function Settings(): ReactElement {
     ),
   }
 
+  const ledgerWalletBeta = {
+    title: "",
+    component: () => (
+      <SettingButton
+        label="Ledger Wallet Beta"
+        ariaLabel="Ledger hardware wallet integration"
+        icon="continue"
+        onClick={() => history.push("/ledger-wallet", { from: "settings" })}
+      />
+    ),
+  }
+
   const forceQiWalletRescanDrawer = () => {
     return (
       <SharedDrawer
@@ -889,7 +901,7 @@ export default function Settings(): ReactElement {
     },
     walletOptions: {
       title: t("settings.group.walletOptions"),
-      items: [customRPCUrl, addCustomAsset, forceQiWalletRescan, aggregateQiOutputsButton, showQiUTXODistributionButton, historicalConversionIntervals],
+      items: [customRPCUrl, addCustomAsset, forceQiWalletRescan, aggregateQiOutputsButton, showQiUTXODistributionButton, historicalConversionIntervals, ledgerWalletBeta],
     },
     helpCenter: {
       title: t("settings.group.helpCenter"),

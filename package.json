@@ -58,6 +58,10 @@
   ],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "@ledgerhq/hw-app-eth": "^6.45.16",
+    "@ledgerhq/hw-transport-webhid": "^6.30.5",
+    "@ledgerhq/types-cryptoassets": "^7.25.0",
+    "@ledgerhq/types-devices": "^6.27.0",
     "@pelagus-provider/provider-bridge": "1.0.51",
     "@pelagus-provider/provider-bridge-shared": "1.0.51",
     "@pelagus-provider/window-provider": "1.0.51",

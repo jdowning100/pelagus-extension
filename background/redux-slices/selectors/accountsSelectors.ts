@@ -411,6 +411,9 @@ function signerIdFor(accountSigner: AccountSigner): string | null {
       return "private-key"
     case "keyring":
       return accountSigner.keyringID
+    case "ledger":
+      // Group Ledger accounts by device ID
+      return `ledger-${accountSigner.deviceId}`
     case "read-only":
       return null
     default:
@@ -424,6 +427,7 @@ const signerTypeToAccountType: Record<SignerType, AccountType> = {
   keyring: AccountType.Imported,
   "private-key": AccountType.PrivateKey,
   "read-only": AccountType.ReadOnly,
+  "ledger": AccountType.Ledger,
 }
 
 const getAccountType = (
@@ -436,6 +440,7 @@ const getAccountType = (
   switch (true) {
     case signerTypeToAccountType[signer.type] === AccountType.ReadOnly:
     case signerTypeToAccountType[signer.type] === AccountType.PrivateKey:
+    case signerTypeToAccountType[signer.type] === AccountType.Ledger:
       return signerTypeToAccountType[signer.type]
     case addressSources[address] === SignerImportSource.import:
       return AccountType.Imported
